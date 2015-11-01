@@ -1,0 +1,74 @@
+html, body {
+  height: 100%;
+}
+
+body {
+  color: #445;
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+.sss {
+  margin-top: 50px;
+  height: 100%;
+  .container {
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    ul {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+    }
+  }
+}
+
+.slot {
+  height: 100%;
+  ul {
+    list-style: none;
+  }
+  .slot-button {
+    height: 33%;
+    background: #eee;
+    border: 1px solid #ddd;
+    &:hover {
+      cursor: pointer;
+    }
+  }
+}
+
+.jumbotron {
+  margin-bottom: 0;
+  padding: 150px 0 110px 0;
+  background-image: url('../images/flags.png');
+  background-color: #fff;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+  text-align: center;
+  opacity: 1;
+  h1 {
+    color: #334;
+    font-size: 40px;
+    font-weight: bold;
+    line-height: 50px;
+  }
+  p {
+    color: #555;
+    font-size: 20px;
+  }
+}
+
+.section {
+  .container {
+    max-width: 650px;
+    padding: 40px 0;
+    text-align: center;
+  }
+}
+
+.flow {
+  background: #eee;
+}
+
