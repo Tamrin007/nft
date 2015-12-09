@@ -73,7 +73,8 @@ gulp.task('js', function() {
 gulp.task('bower', function() {
   var bowerFiles = [
     'bower_components/jquery/dist/jquery.min.js',
-    'bower_components/bootstrap/dist/js/bootstrap.min.js'
+    'bower_components/bootstrap/dist/js/bootstrap.min.js',
+    'bower_components/pagePiling.js/jquery.pagepiling.min.js'
   ];
   return gulp.src(bowerFiles)
     .pipe(uglify({preserveComments: 'some'}))
@@ -124,4 +125,3 @@ gulp.task('start', function(callback) {
     callback
   )
 });
-
