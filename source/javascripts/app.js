@@ -196,3 +196,28 @@
 
 })(this, document, jQuery, this.nft);
 
+// テスト用
+var userAns = new Object,
+    correctAns = {
+        1: 1,
+        2: 3,
+        3: 2,
+        4: 3,
+        5: 1,
+        6: 3,
+        7: 1,
+        8: 1,
+        9: 2,
+        10: 1,
+    };
+
+function answer(qNum, ans) {
+    userAns[qNum] = ans;
+}
+
+function mark() {
+    var score = 0;
+    for (var qNum in userAns) userAns[qNum] === correctAns[qNum] && score++;
+    var result = '<h2>採点結果は</h2><h2 id="score">' + score + "点です！</h2>";
+    $("#finish").html(result);
+}
