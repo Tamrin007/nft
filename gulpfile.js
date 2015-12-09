@@ -66,7 +66,6 @@ gulp.task('compass', function() {
 gulp.task('js', function() {
   return gulp.src(path.join(source.js, '**/*.js'))
     .pipe(uglify({preserveComments: 'some'}))
-    .pipe(concat('all.js'))
     .pipe(gulp.dest(build.js));
 });
 
