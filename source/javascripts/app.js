@@ -3,11 +3,9 @@
   var isStop = [];
   var isContentVisible = false;
 
-  var blue = '#4a89dc';
-  blue = 'blue';
-  var red = '#ed5566';
-  red = 'red';
-  var green = '#57a863';
+  var blue = 'blue';
+  var red = 'red';
+  var green = 'green';
   var white = '#fff';
   var black = '#000';
   var yellow = 'yellow';
@@ -80,7 +78,6 @@
 
   startRoulette();
 
-
   $('.slot-button').on('click', function() {
     if (!isContentVisible) {
       var slotID = $(this).attr('data-slot');
@@ -91,8 +88,8 @@
 
     if (isStop[0] && isStop[1] && isStop[2] && !isContentVisible) {
       isContentVisible = true;
-
       $('.reload').css('display', 'block');
+
       if (i === 9) {
         $('.reload').html('本テストへ');
       }
@@ -110,6 +107,10 @@
         class: 'flag',
         src: './images/' + nf[i].image
       }).appendTo('.content .container');
+      $( "<div/>", {
+        id: 'map',
+      }).appendTo('.content .container');
+      showMap(nf[i].name);
     }
   });
 
@@ -162,6 +163,35 @@
 
   function stopTimer(i) {
     clearInterval(timers[i]);
+  }
+
+
+  function showMap(address) {
+    var latlng;
+    var geocoder = new google.maps.Geocoder();
+    geocoder.geocode({
+      'address': address,
+      'region': 'jp'
+    }, function(results, status) {
+      for (var r in results) {
+        latlng = results[r].geometry.location;
+      }
+      var options = {
+        zoom: 4,
+        center: latlng,
+        mapTypeId: google.maps.MapTypeId.ROADMAP,
+        scrollwheel: false
+      };
+      var map = new google.maps.Map(document.getElementById('map'), options);
+      var styles =
+        [{"featureType":"landscape","stylers":[{"saturation":-100},{"lightness":65},{"visibility":"on"}]},{"featureType":"poi","stylers":[{"saturation":-100},{"lightness":51},{"visibility":"simplified"}]},{"featureType":"road.highway","stylers":[{"saturation":-100},{"visibility":"simplified"}]},{"featureType":"road.arterial","stylers":[{"saturation":-100},{"lightness":30},{"visibility":"on"}]},{"featureType":"road.local","stylers":[{"saturation":-100},{"lightness":40},{"visibility":"on"}]},{"featureType":"transit","stylers":[{"saturation":-100},{"visibility":"simplified"}]},{"featureType":"administrative.province","stylers":[{"visibility":"off"}]},{"featureType":"water","elementType":"labels","stylers":[{"visibility":"on"},{"lightness":-25},{"saturation":-100}]},{"featureType":"water","elementType":"geometry","stylers":[{"hue":"#ffff00"},{"lightness":-25},{"saturation":-97}]}];
+      map.setOptions({styles: styles});
+
+      var marker = new google.maps.Marker({
+        position: map.getCenter(),
+        map: map
+      });
+    });
   }
 
 })(this, document, jQuery, this.nft);
