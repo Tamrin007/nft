@@ -289,5 +289,5 @@ function mark() {
 }
 
 function jumpPage() {
-  location.href = '/start.html';
+  location.href = './start.html';
 }
