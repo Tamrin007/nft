@@ -15,6 +15,7 @@
   "dependencies": {
     "jquery": "~2.1.4",
     "bootstrap": "~3.3.5",
-    "pagePiling.js": "pagepiling.js#~1.5.1"
+    "pagePiling.js": "pagepiling.js#~1.5.1",
+    "jquery.cookie": "~1.4.1"
   }
 }
