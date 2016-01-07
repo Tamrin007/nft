@@ -73,7 +73,8 @@ gulp.task('bower', function() {
   var bowerFiles = [
     'bower_components/jquery/dist/jquery.min.js',
     'bower_components/bootstrap/dist/js/bootstrap.min.js',
-    'bower_components/pagePiling.js/jquery.pagepiling.min.js'
+    'bower_components/pagePiling.js/jquery.pagepiling.min.js',
+    'bower_components/jquery.cookie/jquery.cookie.js'
   ];
   return gulp.src(bowerFiles)
     .pipe(uglify({preserveComments: 'some'}))

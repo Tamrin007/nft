@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-  <title>学習 - National Flag Tour</title>
+  <title>National Flag Tour</title>
   <link rel="stylesheet" href="./stylesheets/all.css">
 </head>
 <body>
@@ -22,37 +22,48 @@
       <!-- Collect the nav links, forms, and other content for toggling -->
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav">
-          <li class="">
-            <a href="./about.html">このサイトについて <span class="sr-only">(current)</span></a>
+          <li>
+            <a href="./about.html">このサイトについて</span></a>
           </li>
           <li><a href="./learning.html">学習</a></li>
         </ul>
       </div>
     </div>
   </nav>
-  <div class="slot">
+  <div class="result">
     <div class="container">
-      <h2>3つの色を選択！</h2>
-      <p>色をクリックで色が選択できます</p>
-      <ul class="clearfix">
-        <li class="top slot-button" data-slot="0"></li>
-        <li class="middle slot-button" data-slot="1"></li>
-        <li class="bottom slot-button" data-slot="2"></li>
-      </ul>
+      kekka
     </div>
   </div>
-  <div class="buttons">
-    <div class="container">
-      <button class="reload btn btn-primary">次の国旗</button>
-      <div class="count"><span>1 / 10</span></div>
-    </div>
-  </div>
-  <div class="content">
-    <div class="container">
-    </div>
-  </div>
-  <script src="./javascripts/gmaps.js"></script>
   <script src="./javascripts/bower.js"></script>
-  <script src="./javascripts/app.js"></script>
+  <script src="./javascripts/all.js"></script>
+  <script>
+    $(function() {
+      if ($.cookie('pretest') && $.cookie('posttest')) {
+        var str = 'プレテスト: ' + $.cookie('pretest') + '点 確認テスト: ' + $.cookie('posttest') + '点';
+        $("<h2/>", {
+          style: 'margin-top: 50px;',
+          text: 'あなたの成績'
+        }).appendTo('.result .container');
+        $("<p/>", {
+          style: 'font-size: 20px; color: red',
+          text: str
+        }).appendTo('.result .container');
+        $("<p/>", {
+          text: 'アンケートに回答してください'
+        }).appendTo('.result .container');
+        $("<a/>", {
+          target: '_blank',
+          text: 'http://google.com',
+          href: 'http://google.com'
+        }).appendTo('.result .container');
+      } else {
+        $("<div/>", {
+          id: 'map',
+          text: 'テストを先に受けてください．'
+        }).appendTo('.result .container');
+      }
+    });
+  </script>
 </body>
 </html>

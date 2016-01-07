@@ -80,7 +80,7 @@
             $('.reload').css('display', 'block');
 
             if (i === 9) {
-                $('.reload').html('本テストへ');
+                $('.reload').html('確認テストへ');
             }
 
             // コンテンツの挿入
@@ -115,7 +115,7 @@
 
             if (i >= nf.length) {
                 // 学習終了
-                global.location.href = 'index.html';
+                global.location.href = 'posttest.html';
             } else {
                 startRoulette();
                 $('.reload').css('display', 'none');
@@ -284,10 +284,22 @@ function mark() {
     var score = 0;
     for (var qNum in userAns) userAns[qNum] === correctAns[qNum] && score++;
     var result = '<h2>採点結果は</h2><h2 id="score">' + score + "点です！</h2>";
+    $.cookie('pretest', score);
     $("#finish").html(result);
     setTimeout("jumpPage()", 5 * 1000);
 }
 
+function mark2() {
+    var score = 0;
+    for (var qNum in userAns) userAns[qNum] === correctAns[qNum] && score++;
+    var result = '<h2>採点結果は</h2><h2 id="score">' + score + "点です！</h2>";
+    $.cookie('posttest', score);
+    $("#finish").html(result);
+    setTimeout(function(){
+      location.href = './result.html';
+    }, 5 * 1000);
+}
+
 function jumpPage() {
-  location.href = './start.html';
+  location.href = './learning.html';
 }
